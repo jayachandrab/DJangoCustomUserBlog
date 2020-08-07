@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
+
 <style>
     .form-signin {
   width: 100%;
@@ -39,6 +41,9 @@
 </style>
   
     <form class="form-signin" method="POST">
+      <div class="d-flex flex-column pb-3">
+        <img class="img-fluid mx-auto d-block"  src="{% static 'coding.png' %}" alt="coding basics" width="150" height="92" />
+      </div>
         {% csrf_token %}
         <h1 class="h3 mb-3 font-weight-normal">Register</h1>
         <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
