@@ -8,6 +8,8 @@ from account.models import Account
 from django.views.generic.base import ContextMixin 
 from django.views.generic import TemplateView 
 from django.template.loader import render_to_string
+from operator import attrgetter
+from blog.models import BlogPost
 
 def custom(request):
     rendered = render_to_string('ap1/custom.html', {'foo': 'custom2.html'})
@@ -49,8 +51,8 @@ def index(request):
 
 def home(request):
     context={}
-    accounts=Account.objects.all()
-    context['accounts']=accounts
+    blog_posts=sorted(BlogPost.objects.all(),key=attrgetter('date_updated'),reverse=True)
+    context['blog_posts']=blog_posts
     return render(request,'ap1/home.html',context);
 
 
