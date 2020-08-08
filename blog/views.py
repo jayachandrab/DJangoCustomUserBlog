@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect,get_object_or_404
 from blog.models import BlogPost
 from account.models import Account
 from blog.forms import CreateBlogPostForm, UpdateBlogPostForm
+from django.db.models import Q
 
 # Create your views here.
 
@@ -51,3 +52,17 @@ def edit_blog_view(request,slug):
     )
     context['form']=form
     return render(request,'blog/edit_blog.html',context)
+
+
+def get_blog_queryset(query=None):
+    queryset=[]
+    queries=query.split(" ")
+    print("=========="+query)
+    for q in queries:
+        
+        posts=BlogPost.objects.filter(Q(title__icontains=q)|Q(body__icontains=q)).distinct()
+        for post in posts:
+            print(str(post)+"===================")
+            queryset.append(post)
+    print(queryset)
+    return list(set(queryset))
