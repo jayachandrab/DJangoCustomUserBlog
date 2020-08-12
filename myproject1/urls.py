@@ -22,9 +22,15 @@ from django.conf.urls.static import static
 
 
 urlpatterns = [
+    path('api/blog/',include('blog.api.urls','blog_api')),
+    path('api/account/',include('account.api.urls','acount_api')),
     path('admin/', admin.site.urls),
-    path('blog',include("blog.urls",'blog')),
-    path('',include("ap1.urls"))
+    path('blog/',include("blog.urls",'blog')),
+   
+    path('',include("ap1.urls")),
+
+    # RestFramework
+    
     #path('accounts/',include('django.contrib.auth.urls'))
    
 ]
