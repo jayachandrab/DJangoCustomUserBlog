@@ -19,7 +19,8 @@ from django.urls import path,include
 
 from django.conf import settings
 from django.conf.urls.static import static
-
+from django.views.generic import TemplateView
+from .views import MorningGreetingView
 
 urlpatterns = [
     path('api/blog/',include('blog.api.urls','blog_api')),
@@ -28,6 +29,10 @@ urlpatterns = [
     path('blog/',include("blog.urls",'blog')),
    
     path('',include("ap1.urls")),
+    #path('about/', TemplateView.as_view(template_name="about.html")),
+    path('about/', MorningGreetingView.as_view()),
+
+
 
     # RestFramework
     
