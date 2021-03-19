@@ -11,7 +11,7 @@ configparser==5.0.0
 crayons==0.3.1
 distlib==0.3.0
 Django==3.0.7
-djangorestframework==3.11.0
+djangorestframework==3.11.2
 execnet==1.7.1
 filelock==3.0.12
 fyers-api==1.0.9
