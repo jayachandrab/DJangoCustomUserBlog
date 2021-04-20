@@ -30,7 +30,7 @@ pandas==0.25.3
 pandas-compat==0.1.1
 Pillow==7.2.0
 pluggy==0.13.1
-py==1.8.1
+py==1.10.0
 pylint==2.5.2
 pylint-django==2.0.15
 pylint-plugin-utils==0.6
